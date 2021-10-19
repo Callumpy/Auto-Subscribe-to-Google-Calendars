@@ -7,6 +7,7 @@ function getConfig() {
 
     "sheetId": "",
       
+    // Ensure to add a tab to the database sheet for any calendars added below.
       "groups": {
         "group-1@test.com": {
           "calendar-1@group.calendar.google.com": {

@@ -1,6 +1,7 @@
 function addCalendarToGroupMembers() {
     let config = getConfig()
     let groups = config.groups
+    let database = openDatabaseConnection()
   
     // Iterate over each group in the config file.
     for (const [group, calendars] of Object.entries(groups)) {
@@ -16,7 +17,7 @@ function addCalendarToGroupMembers() {
         // Get a list of all users that have been added to this calendar previously.
         // Do this to avoid authenticating as the same users over and over again.
         // Also allows users to unsub if they wish without as adding it back again.
-        let alreadyMembers = getUsersFromDatabase(calendarId)
+        let alreadyMembers = getUsersFromDatabase(calendarId, database)
   
         // Auth using OAuth2 for each member in the group and subscribe to the specific calendar.
         members.forEach(function(member) {
@@ -42,7 +43,7 @@ function addCalendarToGroupMembers() {
               Logger.log("Subscribing to " + calendarDetails.calendarName + " calendar for user: " + member)
   
               Logger.log("Adding " + member + " to database")
-              addUserToDatabase(calendarId ,member)
+              addUserToDatabase(calendarId ,member, database)
   
             } catch (e) {
               Logger.log(e)

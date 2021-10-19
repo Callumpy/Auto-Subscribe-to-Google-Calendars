@@ -1,7 +1,6 @@
 const SHEET_ID = getConfig().sheetId
 
-function getUsersFromDatabase(calendarId) {
-  let database = objDB.open(SHEET_ID);
+function getUsersFromDatabase(calendarId, database) {
   let rows = objDB.getRows(database, calendarId);
   let membersArray = []
 
@@ -12,7 +11,10 @@ function getUsersFromDatabase(calendarId) {
   return membersArray
 }
 
-function addUserToDatabase(calendarId, member) {
-  let database = objDB.open(SHEET_ID);
+function addUserToDatabase(calendarId, member, database) {
   objDB.insertRow(database, calendarId, {"Members": member})
+}
+
+function openDatabaseConnection() {
+  return objDB.open(SHEET_ID);
 }
