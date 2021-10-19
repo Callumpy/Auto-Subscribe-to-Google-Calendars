@@ -1,6 +1,7 @@
 # Auto Subscribe to Google Calendars
 Automatically subscribe end-users from a Google Group to a Group/Shared Calendar, using Google AppsScript and a service account for delegated admin access. 
 
+- The calendar will appear in the user's Calendar UI automatically, no need to ask people to manually add calendars. 
 - This doesn't add users to the calendar's ACL, the calenader must have been made available to the user in advance (mostly through being visable to your entire organisation).
 - It can only subscribe users that belong to your domain, delegated admin access to the end-user is required.
 
