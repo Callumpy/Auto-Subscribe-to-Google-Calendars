@@ -1,7 +1,9 @@
+const SCRIPT_PROPERTIES = PropertiesService.getScriptProperties();
+
 function getConfig() {
     return {
-      "private_key": "",
-      "service_account": "....iam.gserviceaccount.com",
+    "private_key": SCRIPT_PROPERTIES.getProperty("PRIVATE_KEY"),
+    "service_account": SCRIPT_PROPERTIES.getProperty("SERVICE_ACCOUNT"),
       
       "groups": {
         "group-1@test.com": {
@@ -31,4 +33,9 @@ function getConfig() {
             },
         },
     }
+}
+
+function setKeys() {
+    SCRIPT_PROPERTIES.setProperty('PRIVATE_KEY', '-----BEGIN PRIVATE KEY-----\n\n-----END PRIVATE KEY-----\n');
+    SCRIPT_PROPERTIES.setProperty('SERVICE_ACCOUNT', '');
 }
