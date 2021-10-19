@@ -1,4 +1,4 @@
-let BASE_URL = "https://www.googleapis.com"
+const BASE_URL = "https://www.googleapis.com"
 
 /**
  * Create an OAuth2 service with an impersonated user to get access token.
