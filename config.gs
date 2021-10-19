@@ -4,6 +4,8 @@ function getConfig() {
     return {
     "private_key": SCRIPT_PROPERTIES.getProperty("PRIVATE_KEY"),
     "service_account": SCRIPT_PROPERTIES.getProperty("SERVICE_ACCOUNT"),
+
+    "sheetId": "",
       
       "groups": {
         "group-1@test.com": {
