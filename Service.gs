@@ -14,7 +14,6 @@ function getService(userImpersonating) {
       .setPrivateKey(privateKey)
       .setIssuer(serviceAccountEmail)
       .setSubject(userImpersonating)
-      .setPropertyStore(PropertiesService.getScriptProperties())
       .setScope(BASE_URL + '/auth/calendar');
 }
 
