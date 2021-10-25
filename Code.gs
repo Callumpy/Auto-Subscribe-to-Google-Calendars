@@ -29,6 +29,8 @@ function addCalendarToGroupMembers() {
               return
             }
   
+            Logger.log("Subscribing to " + calendarDetails.calendarName + " calendar for user: " + member)
+
             try {
               subscribeToCalendar(
                 service.getAccessToken(), 
@@ -39,8 +41,6 @@ function addCalendarToGroupMembers() {
                 calendarDetails.selected,
                 member
               )
-  
-              Logger.log("Subscribing to " + calendarDetails.calendarName + " calendar for user: " + member)
   
               Logger.log("Adding " + member + " to database")
               addUserToDatabase(calendarId ,member, database)
